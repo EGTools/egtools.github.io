@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://egtools.kr/sitemap.xml

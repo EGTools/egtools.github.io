@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://egtools.kr/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://egtools.kr/kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://egtools.kr/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://egtools.kr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://egtools.kr/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://egtools.kr/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://egtools.kr/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://egtools.kr/"/>
+  </url>
+  <url>
+    <loc>https://egtools.kr/kr/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://egtools.kr/kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://egtools.kr/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://egtools.kr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://egtools.kr/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://egtools.kr/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://egtools.kr/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://egtools.kr/"/>
+  </url>
+  <url>
+    <loc>https://egtools.kr/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://egtools.kr/kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://egtools.kr/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://egtools.kr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://egtools.kr/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://egtools.kr/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://egtools.kr/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://egtools.kr/"/>
+  </url>
+  <url>
+    <loc>https://egtools.kr/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://egtools.kr/kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://egtools.kr/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://egtools.kr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://egtools.kr/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://egtools.kr/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://egtools.kr/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://egtools.kr/"/>
+  </url>
+  <url>
+    <loc>https://egtools.kr/es/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://egtools.kr/kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://egtools.kr/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://egtools.kr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://egtools.kr/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://egtools.kr/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://egtools.kr/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://egtools.kr/"/>
+  </url>
+  <url>
+    <loc>https://egtools.kr/zh-CN/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://egtools.kr/kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://egtools.kr/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://egtools.kr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://egtools.kr/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://egtools.kr/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://egtools.kr/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://egtools.kr/"/>
+  </url>
+  <url>
+    <loc>https://egtools.kr/zh-TW/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://egtools.kr/kr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://egtools.kr/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://egtools.kr/ja/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://egtools.kr/es/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://egtools.kr/zh-CN/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://egtools.kr/zh-TW/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://egtools.kr/"/>
+  </url>
+</urlset>

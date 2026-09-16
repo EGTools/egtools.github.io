@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EGTools++ — 讓舊版 Excel 使用 XLOOKUP 與 FILTER 的增益集</title>
+<meta name="description" content="免費 Excel 增益集 EGTools++，讓 Excel 2010-2021 也能使用 XLOOKUP、FILTER、TEXTSPLIT、GROUPBY 與正規表示式函數。單一 .xll 檔案，不需安裝程式與管理員權限。">
+<meta name="keywords" content="EGTools, EGTools++, Excel 增益集, xll, Excel 函數, Excel 2010, 動態陣列">
+<link rel="canonical" href="https://egtools.kr/zh-TW/">
+<link rel="alternate" href="https://egtools.kr/kr/" hreflang="ko">
+<link rel="alternate" href="https://egtools.kr/en/" hreflang="en">
+<link rel="alternate" href="https://egtools.kr/ja/" hreflang="ja">
+<link rel="alternate" href="https://egtools.kr/es/" hreflang="es">
+<link rel="alternate" href="https://egtools.kr/zh-CN/" hreflang="zh-Hans">
+<link rel="alternate" href="https://egtools.kr/zh-TW/" hreflang="zh-Hant">
+<link rel="alternate" href="https://egtools.kr/en/" hreflang="x-default">
+<meta property="og:type" content="website">
+<meta property="og:title" content="EGTools++ — 讓舊版 Excel 使用 XLOOKUP 與 FILTER 的增益集">
+<meta property="og:description" content="免費 Excel 增益集 EGTools++，讓 Excel 2010-2021 也能使用 XLOOKUP、FILTER、TEXTSPLIT、GROUPBY 與正規表示式函數。單一 .xll 檔案，不需安裝程式與管理員權限。">
+<meta property="og:url" content="https://egtools.kr/zh-TW/">
+<meta property="og:site_name" content="EGTools++">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EGTools++ — 讓舊版 Excel 使用 XLOOKUP 與 FILTER 的增益集">
+<meta name="twitter:description" content="免費 Excel 增益集 EGTools++，讓 Excel 2010-2021 也能使用 XLOOKUP、FILTER、TEXTSPLIT、GROUPBY 與正規表示式函數。單一 .xll 檔案，不需安裝程式與管理員權限。">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"EGTools++","description":"免費 Excel 增益集 EGTools++，讓 Excel 2010-2021 也能使用 XLOOKUP、FILTER、TEXTSPLIT、GROUPBY 與正規表示式函數。單一 .xll 檔案，不需安裝程式與管理員權限。","applicationCategory":"BusinessApplication","operatingSystem":"Windows","softwareRequirements":"Microsoft Excel 2010 or later","url":"https://egtools.kr/zh-TW/","downloadUrl":"https://github.com/EGTools/EGToolsPP/releases/latest","license":"https://www.apache.org/licenses/LICENSE-2.0","inLanguage":"zh-Hant","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"sameAs":"https://github.com/EGTools/EGToolsPP"}</script>
+<style>
+:root {
+  --bg: #ffffff; --bg-alt: #f6f7f9; --fg: #1b1f24; --fg-dim: #58616b;
+  --line: #e2e5ea; --accent: #1f6feb; --accent-fg: #ffffff; --code-bg: #eef1f5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181d; --bg-alt: #1b2026; --fg: #e6e9ee; --fg-dim: #9aa4b0;
+    --line: #2b323a; --accent: #5b9cff; --accent-fg: #0d1117; --code-bg: #232a32;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", "Malgun Gothic", "Hiragino Sans",
+        "Microsoft YaHei", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--accent); }
+code {
+  background: var(--code-bg); border-radius: 4px; padding: 0.1em 0.35em;
+  font: 0.88em/1.4 ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+.wrap { max-width: 56rem; margin: 0 auto; padding: 0 1.25rem; }
+header { border-bottom: 1px solid var(--line); }
+header .wrap {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1rem;
+  align-items: center; justify-content: space-between; padding-block: 0.9rem;
+}
+.brand { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; }
+.brand span { color: var(--accent); }
+header nav { display: flex; flex-wrap: wrap; gap: 0.9rem; font-size: 0.9rem; }
+.hero { padding-block: 3.5rem 2.5rem; }
+h1 { font-size: 2.6rem; line-height: 1.15; margin: 0 0 0.4rem; letter-spacing: -0.02em; }
+.tag { font-size: 1.3rem; font-weight: 600; color: var(--fg); margin: 0 0 1rem; }
+.lead { font-size: 1.05rem; color: var(--fg-dim); max-width: 44rem; margin: 0 0 1.75rem; }
+.cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-block; padding: 0.6rem 1.15rem; border-radius: 7px;
+  border: 1px solid var(--line); text-decoration: none; font-weight: 600;
+}
+.btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.note { font-size: 0.85rem; color: var(--fg-dim); margin: 0.85rem 0 0; }
+.stats {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem;
+  margin: 2.5rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line);
+}
+.stats b { display: block; font-size: 1.9rem; line-height: 1.1; letter-spacing: -0.02em; }
+.stats span { font-size: 0.85rem; color: var(--fg-dim); }
+section { padding-block: 2.5rem; border-top: 1px solid var(--line); }
+section.hero { border-top: 0; }
+h2 { font-size: 1.5rem; margin: 0 0 1.25rem; letter-spacing: -0.01em; }
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.card { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 9px; padding: 1.1rem 1.15rem; }
+.card h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+.card p { margin: 0; font-size: 0.92rem; color: var(--fg-dim); }
+.chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0 0 1.25rem; }
+.chips a {
+  border: 1px solid var(--line); background: var(--bg-alt); border-radius: 6px;
+  padding: 0.25rem 0.55rem; text-decoration: none; color: var(--fg);
+  font: 0.86rem/1.5 ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+.chips a:hover { border-color: var(--accent); color: var(--accent); }
+ol.steps { margin: 0; padding-left: 1.4rem; }
+ol.steps li { margin-bottom: 0.5rem; }
+ul.links { list-style: none; margin: 0; padding: 0; }
+ul.links li { padding: 0.45rem 0; border-bottom: 1px solid var(--line); }
+footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; color: var(--fg-dim); font-size: 0.85rem; }
+footer .langs { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 1rem; }
+@media (max-width: 34rem) {
+  h1 { font-size: 2.05rem; }
+  .tag { font-size: 1.12rem; }
+  .hero { padding-block: 2.25rem 1.75rem; }
+}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand">EGTools<span>++</span></div>
+  <nav>
+    <a href="#features">主要功能</a>
+    <a href="#install">安裝</a>
+    <a href="https://manual.egtools.kr/zh-TW/">查看手冊</a>
+    <a href="https://github.com/EGTools/EGToolsPP">GitHub</a>
+  </nav>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <h1>EGTools++</h1>
+    <p class="tag">在舊版 Excel 裡用新版函數</p>
+    <p class="lead">EGTools++ 是一個單檔 <code>.xll</code> 增益集，讓 Excel 2010 及更新版本也能使用 Microsoft 365 的新版函數。不需安裝程式、不需執行階段、不需管理員權限。</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/EGTools/EGToolsPP/releases/latest">免費下載</a>
+      <a class="btn" href="https://manual.egtools.kr/zh-TW/">查看手冊</a>
+    </div>
+    <p class="note">Apache-2.0 · 僅支援 Windows · 32 位元與 64 位元 Excel</p>
+    <ul class="stats"><li><b>128</b><span>個函數</span></li><li><b>69</b><span>Excel 相容</span></li><li><b>7</b><span>Google Sheets 相容</span></li><li><b>52</b><span>EGTools 專有</span></li></ul>
+  </section>
+  <section id="features">
+    <h2>主要功能</h2>
+    <div class="grid"><div class="card"><h3>128 個函數</h3><p>新版 Excel 相容 69 個(查閱、動態陣列、文字、彙總、正規表示式、網路)，Google Sheets 相容 7 個，EGTools 專有 52 個。</p></div><div class="card"><h3>依版本調整的函數名稱</h3><p>主機已有內建函數時以 <code>EG.</code> 前置字元註冊，沒有時直接用原名註冊，舊版工作簿不必改寫公式。</p></div><div class="card"><h3>動態陣列溢出相容</h3><p>新版 Excel 使用原生溢出，舊版自動展開為 CSE 陣列，結果一致。</p></div><div class="card"><h3>儲存格內 IntelliSense</h3><p>輸入公式時以提示顯示函數說明與引數說明，支援 6 種語言。</p></div><div class="card"><h3>功能區 EGTools 索引標籤</h3><p>僅複製可見儲存格、合併與分割儲存格、插入圖片並符合儲存格、批次擷取圖片、產生日曆與行程表(標示假日)、標籤與合併列印(SMTP 寄送)、樣式·名稱·錯誤整理。</p></div><div class="card"><h3>相容性轉換</h3><p>將工作簿中新版函數的公式批次轉換為相容函數名稱並可還原，轉換前自動備份。</p></div><div class="card"><h3>單一檔案</h3><p>靜態連結，不需 VC++ 可轉散發套件。移除只要在增益集清單取消勾選。</p></div></div>
+  </section>
+  <section id="functions">
+    <h2>可以使用的函數</h2>
+    <p class="note" style="margin:0 0 1rem">點選函數名稱即可查看手冊中的用法與範例。</p>
+    <div class="chips"><a href="https://manual.egtools.kr/zh-TW/functions/excel-2021/XLOOKUP/">XLOOKUP</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2021/XMATCH/">XMATCH</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2021/FILTER/">FILTER</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2021/SORT/">SORT</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2021/SORTBY/">SORTBY</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2021/UNIQUE/">UNIQUE</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2021/SEQUENCE/">SEQUENCE</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2024/TEXTSPLIT/">TEXTSPLIT</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2024/TEXTBEFORE/">TEXTBEFORE</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2024/TEXTAFTER/">TEXTAFTER</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2016-2019/TEXTJOIN/">TEXTJOIN</a><a href="https://manual.egtools.kr/zh-TW/functions/microsoft-365/GROUPBY/">GROUPBY</a><a href="https://manual.egtools.kr/zh-TW/functions/microsoft-365/PIVOTBY/">PIVOTBY</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2016-2019/MAXIFS/">MAXIFS</a><a href="https://manual.egtools.kr/zh-TW/functions/microsoft-365/REGEXTEST/">REGEXTEST</a><a href="https://manual.egtools.kr/zh-TW/functions/microsoft-365/REGEXEXTRACT/">REGEXEXTRACT</a><a href="https://manual.egtools.kr/zh-TW/functions/microsoft-365/REGEXREPLACE/">REGEXREPLACE</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2024/VSTACK/">VSTACK</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2024/HSTACK/">HSTACK</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2024/TAKE/">TAKE</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2024/DROP/">DROP</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2024/WRAPROWS/">WRAPROWS</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2024/CHOOSECOLS/">CHOOSECOLS</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2021/LET/">LET</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2016-2019/IFS/">IFS</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2016-2019/SWITCH/">SWITCH</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2024/IMAGE/">IMAGE</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2013/WEBSERVICE/">WEBSERVICE</a><a href="https://manual.egtools.kr/zh-TW/functions/excel-2013/FILTERXML/">FILTERXML</a><a href="https://manual.egtools.kr/zh-TW/functions/google/QUERY/">QUERY</a><a href="https://manual.egtools.kr/zh-TW/functions/google/GOOGLETRANSLATE/">GOOGLETRANSLATE</a><a href="https://manual.egtools.kr/zh-TW/functions/google/IMPORTRANGE/">IMPORTRANGE</a><a href="https://manual.egtools.kr/zh-TW/functions/eg-image/QRCODE/">QRCODE</a><a href="https://manual.egtools.kr/zh-TW/functions/eg-image/BARCODE/">BARCODE</a><a href="https://manual.egtools.kr/zh-TW/functions/eg-visible/ISVISIBLE/">ISVISIBLE</a><a href="https://manual.egtools.kr/zh-TW/functions/eg-visible/SUMIFCOLOR/">SUMIFCOLOR</a><a href="https://manual.egtools.kr/zh-TW/functions/eg-data/UNPIVOT/">UNPIVOT</a><a href="https://manual.egtools.kr/zh-TW/functions/eg-lookup/COMPARELIST/">COMPARELIST</a><a href="https://manual.egtools.kr/zh-TW/functions/eg-korea/TOLUNAR/">TOLUNAR</a><a href="https://manual.egtools.kr/zh-TW/functions/eg-korea/KOREANHOLIDAYS/">KOREANHOLIDAYS</a><a href="https://manual.egtools.kr/zh-TW/functions/eg-quality/CPK/">CPK</a></div>
+    <p><a href="https://manual.egtools.kr/zh-TW/">查看全部 128 個函數 &rarr;</a></p>
+  </section>
+  <section id="install">
+    <h2>安裝</h2>
+    <p class="note" style="margin:0 0 1rem">不需管理員權限，透過 Excel 內建對話方塊註冊。</p>
+    <ol class="steps"><li>下載與 Excel 位元數相符的 <code>.xll</code>(64 位元為 <code>EGTools++64.xll</code>)</li><li>在 Excel 中開啟 <b>檔案 → 選項 → 增益集</b></li><li>在管理選擇 <b>Excel 增益集</b>，按 <b>執行...</b></li><li><b>瀏覽...</b> → 選擇下載的 <code>.xll</code> → <b>確定</b></li></ol>
+  </section>
+  <section id="links">
+    <h2>文件與社群</h2>
+    <ul class="links"><li><a href="https://manual.egtools.kr/zh-TW/">手冊 — 各函數的用法·範例與功能區說明</a></li><li><a href="https://cafe.naver.com/egtools">Naver 咖啡 — 韓文提問與使用技巧</a></li><li><a href="https://github.com/EGTools/EGToolsPP">GitHub 儲存庫 — 原始碼與發行版</a></li><li><a href="https://github.com/EGTools/EGToolsPP/discussions">GitHub Discussions — 提問、想法與意見</a></li><li><a href="https://github.com/EGTools/EGToolsPP/issues">GitHub Issues — 錯誤回報</a></li></ul>
+  </section>
+</main>
+<footer><div class="wrap">
+  <div class="langs"><a href="https://egtools.kr/kr/" hreflang="ko">한국어</a><a href="https://egtools.kr/en/" hreflang="en">English</a><a href="https://egtools.kr/ja/" hreflang="ja">日本語</a><a href="https://egtools.kr/es/" hreflang="es">Español</a><a href="https://egtools.kr/zh-CN/" hreflang="zh-Hans">简体中文</a></div>
+  <p style="margin:0">EGTools++ 以 Apache License 2.0 發布。Microsoft 與 Excel 是 Microsoft Corporation 的商標，EGTools++ 與 Microsoft 無關。</p>
+</div></footer>
+</body>
+</html>

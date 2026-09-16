@@ -1,14 +1,122 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EGTools++</title>
-<link rel="canonical" href="https://manual.egtools.kr/">
-<meta http-equiv="refresh" content="0; url=https://manual.egtools.kr/">
-<script>location.replace("https://manual.egtools.kr/");</script>
+<title>EGTools++ — XLOOKUP and FILTER for legacy Excel</title>
+<meta name="description" content="Free Excel add-in that brings XLOOKUP, FILTER, TEXTSPLIT, GROUPBY and regex functions to Excel 2010-2021. A single .xll file with no installer and no admin rights.">
+<meta name="keywords" content="EGTools, EGTools++, Excel add-in, xll, Excel functions, Excel 2010, dynamic arrays">
+<link rel="canonical" href="https://egtools.kr/">
+<link rel="alternate" href="https://egtools.kr/kr/" hreflang="ko">
+<link rel="alternate" href="https://egtools.kr/en/" hreflang="en">
+<link rel="alternate" href="https://egtools.kr/ja/" hreflang="ja">
+<link rel="alternate" href="https://egtools.kr/es/" hreflang="es">
+<link rel="alternate" href="https://egtools.kr/zh-CN/" hreflang="zh-Hans">
+<link rel="alternate" href="https://egtools.kr/zh-TW/" hreflang="zh-Hant">
+<link rel="alternate" href="https://egtools.kr/" hreflang="x-default">
+<style>
+:root {
+  --bg: #ffffff; --bg-alt: #f6f7f9; --fg: #1b1f24; --fg-dim: #58616b;
+  --line: #e2e5ea; --accent: #1f6feb; --accent-fg: #ffffff; --code-bg: #eef1f5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181d; --bg-alt: #1b2026; --fg: #e6e9ee; --fg-dim: #9aa4b0;
+    --line: #2b323a; --accent: #5b9cff; --accent-fg: #0d1117; --code-bg: #232a32;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.65 system-ui, -apple-system, "Segoe UI", "Malgun Gothic", "Hiragino Sans",
+        "Microsoft YaHei", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--accent); }
+code {
+  background: var(--code-bg); border-radius: 4px; padding: 0.1em 0.35em;
+  font: 0.88em/1.4 ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+.wrap { max-width: 56rem; margin: 0 auto; padding: 0 1.25rem; }
+header { border-bottom: 1px solid var(--line); }
+header .wrap {
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1rem;
+  align-items: center; justify-content: space-between; padding-block: 0.9rem;
+}
+.brand { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; }
+.brand span { color: var(--accent); }
+header nav { display: flex; flex-wrap: wrap; gap: 0.9rem; font-size: 0.9rem; }
+.hero { padding-block: 3.5rem 2.5rem; }
+h1 { font-size: 2.6rem; line-height: 1.15; margin: 0 0 0.4rem; letter-spacing: -0.02em; }
+.tag { font-size: 1.3rem; font-weight: 600; color: var(--fg); margin: 0 0 1rem; }
+.lead { font-size: 1.05rem; color: var(--fg-dim); max-width: 44rem; margin: 0 0 1.75rem; }
+.cta { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-block; padding: 0.6rem 1.15rem; border-radius: 7px;
+  border: 1px solid var(--line); text-decoration: none; font-weight: 600;
+}
+.btn.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+.note { font-size: 0.85rem; color: var(--fg-dim); margin: 0.85rem 0 0; }
+.stats {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem;
+  margin: 2.5rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line);
+}
+.stats b { display: block; font-size: 1.9rem; line-height: 1.1; letter-spacing: -0.02em; }
+.stats span { font-size: 0.85rem; color: var(--fg-dim); }
+section { padding-block: 2.5rem; border-top: 1px solid var(--line); }
+section.hero { border-top: 0; }
+h2 { font-size: 1.5rem; margin: 0 0 1.25rem; letter-spacing: -0.01em; }
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.card { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 9px; padding: 1.1rem 1.15rem; }
+.card h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+.card p { margin: 0; font-size: 0.92rem; color: var(--fg-dim); }
+.chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0 0 1.25rem; }
+.chips a {
+  border: 1px solid var(--line); background: var(--bg-alt); border-radius: 6px;
+  padding: 0.25rem 0.55rem; text-decoration: none; color: var(--fg);
+  font: 0.86rem/1.5 ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+.chips a:hover { border-color: var(--accent); color: var(--accent); }
+ol.steps { margin: 0; padding-left: 1.4rem; }
+ol.steps li { margin-bottom: 0.5rem; }
+ul.links { list-style: none; margin: 0; padding: 0; }
+ul.links li { padding: 0.45rem 0; border-bottom: 1px solid var(--line); }
+footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; color: var(--fg-dim); font-size: 0.85rem; }
+footer .langs { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 1rem; }
+@media (max-width: 34rem) {
+  h1 { font-size: 2.05rem; }
+  .tag { font-size: 1.12rem; }
+  .hero { padding-block: 2.25rem 1.75rem; }
+}
+</style>
+<script>
+  (function () {
+    var map = { ko: "kr", ja: "ja", es: "es" };
+    var l = (navigator.language || "en").toLowerCase();
+    var target;
+    if (l.indexOf("zh") === 0) {
+      target = (l.indexOf("tw") >= 0 || l.indexOf("hant") >= 0 || l.indexOf("hk") >= 0) ? "zh-TW" : "zh-CN";
+    } else {
+      target = map[l.split("-")[0]] || "en";
+    }
+    location.replace("/" + target + "/");
+  })();
+</script>
 </head>
 <body>
-<p><a href="https://manual.egtools.kr/">EGTools++ 매뉴얼로 이동합니다…</a></p>
+<main class="wrap">
+  <section class="hero">
+    <h1>EGTools++</h1>
+    <p class="tag">Modern Excel functions on legacy Excel</p>
+    <ul class="links" style="max-width:20rem">
+      <li><a href="/kr/" hreflang="ko">한국어</a></li>
+      <li><a href="/en/" hreflang="en">English</a></li>
+      <li><a href="/ja/" hreflang="ja">日本語</a></li>
+      <li><a href="/es/" hreflang="es">Español</a></li>
+      <li><a href="/zh-CN/" hreflang="zh-Hans">简体中文</a></li>
+      <li><a href="/zh-TW/" hreflang="zh-Hant">繁體中文</a></li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>
